@@ -1,0 +1,27 @@
+{
+    "title": "Test it",
+    "questions": [
+        {
+            "question": "What is Quizar?",
+            "type": "one-right",
+            "answers": [
+                "Uuuuuuuh",
+                "The right way to write it is Quasar☝️🤓",
+                "Have you seen a little girl? Short, black hair. She just turned 7 last month.",
+                "It is an intriguing amalgamation of two kindred words."
+            ],
+            "right_answers": [4]
+        },
+        {
+            "question": "What is it made for?",
+            "type": "more-right",
+            "answers": [
+                "FOR FUN",
+                "To have better grades☝️🤓",
+                "ONE PIECE IS REAL",
+                "I don't like sand"
+            ],
+            "right_answers": [1, 3, 4]
+        }
+    ] 
+}
