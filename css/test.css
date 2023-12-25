@@ -100,9 +100,9 @@
 }
 
 .grid-move-and-submit {
-    margin: 2.5em 2%;
+    margin: 5rem 10%;
     display: grid;
-    grid-column-gap: 10%;
+    grid-column-gap: 5%;
     position: relative;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;

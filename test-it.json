@@ -10,7 +10,7 @@
                 "Have you seen a little girl? Short, black hair. She just turned 7 last month.",
                 "It is an intriguing amalgamation of two kindred words."
             ],
-            "right_answers": [4]
+            "right_answers": 3
         },
         {
             "question": "What is it made for?",
@@ -21,7 +21,7 @@
                 "ONE PIECE IS REAL",
                 "I don't like sand"
             ],
-            "right_answers": [1, 3, 4]
+            "right_answers": [0, 2, 3]
         }
     ] 
 }
