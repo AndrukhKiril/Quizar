@@ -11,14 +11,21 @@ body {
 }
 
 .bubble-header {
-    margin: auto;
-    margin-bottom: 0;
-    padding: 0.5em;
-    border-radius: 1em;
-    min-width: 80%;
-    max-width: 80%;
-    background: #504c5f;
-    box-shadow: 0 1.25rem #302b3a;
+    background-color:#504c5f;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+@media screen and (max-width: 600px) {
+    .bubble-header {
+        height: 60vh;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .bubble-header {
+        height: 50vh;
+    }
 }
 
 h1 {
@@ -88,7 +95,8 @@ button:hover {
 
 .links {
     text-align: center;
-    margin: 1.25rem;
+    margin: 0 0 0 1.25rem;
+    padding: 1rem;
 }
 
 .links li {
