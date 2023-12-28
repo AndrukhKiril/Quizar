@@ -40,7 +40,14 @@ function generateQuestion(page, pagesLength, pages, question, answers, rightAnsw
     let answersHTML = [];
 
     for (let i = 0; i < answers.length; i++) {
-        const answer = elementFromHTML(`<div class=\"answer-one\"><p>${answers[i]}</p></div>`);
+        let additionalStyle = '';
+
+        if (answers.length % 2 !== 0 && i === answers.length - 1) { 
+            additionalStyle = 'grid-column: 1/-1;';
+        }
+        
+        const answer = elementFromHTML(`<div class=\"answer-one\" style=\"${additionalStyle}\"><p>${answers[i]}</p></div>`);
+        
         answer.addEventListener('click', () => selectAnswers(answer));
         answersHTML.push(answer);
     }
