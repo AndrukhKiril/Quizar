@@ -12,20 +12,12 @@ body {
 
 .bubble-header {
     background-color:#504c5f;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+    min-height: 20em;
+    height: 60vh;
+    max-height: 30em;
+    height: auto;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-}
-
-@media screen and (max-width: 600px) {
-    .bubble-header {
-        height: 60vh;
-    }
-}
-
-@media screen and (min-width: 601px) {
-    .bubble-header {
-        height: 50vh;
-    }
 }
 
 h1 {
@@ -56,16 +48,16 @@ a.contacts {
 .buttons {
     display: flex;
     justify-content: space-evenly;
-    margin: 3rem auto 0;
+    margin: 1em auto 0;
     max-width: 70%;
-    padding: 1rem; 
+    padding: 0; 
 }
 
 button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
     border: none;
     border-radius: 1rem;
     transition: 0.3s, backface-visibility 0s;
@@ -75,7 +67,6 @@ button {
     background: #504c5f;
     box-shadow: 0 1.25rem #302b3a;
     color: #bbbbbb;
-    font-size: 1em;
 }
 
 .button-test button {
@@ -96,7 +87,7 @@ button:hover {
 .links {
     text-align: center;
     margin: 0 0 0 1.25rem;
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .links li {

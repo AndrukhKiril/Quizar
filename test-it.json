@@ -22,6 +22,16 @@
                 "I don't like sand"
             ],
             "right_answers": [0, 2, 3]
+        },
+        {
+            "question": "Say my name",
+            "type": "one-right",
+            "answers": [
+                "Walter White",
+                "Jessie Pinkman",
+                "Saul Goodman"
+            ],
+            "right_answers": [0, 2]
         }
     ] 
 }

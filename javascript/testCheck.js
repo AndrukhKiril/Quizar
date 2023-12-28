@@ -1,139 +1,109 @@
-function selectAnswers(answerElement, questionClass) {
-    if (answerElement.className === "answer-selected") {
-        answerElement.classList.remove("answer-selected");
-        answerElement.classList.add(questionClass);
-    } else {
-        answerElement.classList.remove(questionClass);
-        answerElement.classList.add('answer-selected');
+function elementFromHTML(html) {
+    const template = document.createElement('template');
+
+    template.innerHTML = html.trim();
+
+    return template.content.firstElementChild;
+}
+
+function selectAnswers(answer) {
+    if (answer.classList.contains("answer-one")) {
+        if (answer.classList.contains("answer-selected")) {
+            answer.classList.remove("answer-selected");
+        } else {
+            answer.classList.add('answer-selected');
+        }
     }
 }
 
-function checkRightAnswers(answersElements, rightAnswersIndex) {
+function checkRightAnswers(answers, rightAnswers) {
     let amountOfPoints = 0;
 
-    for (let i = 0; i < answersElements.length; i++) {
-        if (answersElements[i].classList.contains("answer-selected")) {
-            if (typeof rightAnswersIndex === 'number') {
-                if (i === rightAnswersIndex) {
-                    amountOfPoints++;
-                    answersElements[i].classList.add('answer-right');
-                } else {
-                    answersElements[i].classList.add('answer-wrong');
-                }
-            } 
-            if (typeof rightAnswersIndex === 'object') {
-                for (let j = 0; j < rightAnswersIndex.length; j++) {
-                    if (rightAnswersIndex[j] === i) {
-                        console.log(rightAnswersIndex[j] + ' ' + i);
-                        amountOfPoints += 1;
-                        answersElements[i].classList.add('answer-right');
-                    }
-                }
-            }
-        } else {
-            answersElements[i].classList.remove('answer-one');
-            answersElements[i].classList.add('answer-wrong');
-        }
-        
-        answersElements[i].classList.remove('answer-selected');
-    }
+    for (let i = 0; i < answers.length; i++) {
+        answers[i].classList.remove('answer-one');
 
-    if (typeof rightAnswersIndex === 'object') {
-        for (let i = 0; i < rightAnswersIndex.length; i++) {
-            answersElements[rightAnswersIndex[i]].classList.add('answer-expected');
+        if ((typeof rightAnswers === 'number' && i === rightAnswers) || 
+            (typeof rightAnswers === 'object' && rightAnswers.includes(i))) {
+            if (answers[i].classList.contains('answer-selected')) {
+                amountOfPoints += 1;
+            }
+            answers[i].classList.add('answer-right');
+        } else {
+            answers[i].classList.add('answer-wrong');
         }
-    }
-    if (typeof rightAnswersIndex === 'number') {
-        answersElements[rightAnswersIndex].classList.add('answer-expected');
     }
 }
 
-function moveToQuestion(doc, page) {
+function generateQuestion(page, pagesLength, pages, question, answers, rightAnswers) {
+    const questionHTML = elementFromHTML(`<h1>${question}</h1>`);
+
+    let answersHTML = [];
+
+    for (let i = 0; i < answers.length; i++) {
+        const answer = elementFromHTML(`<div class=\"answer-one\"><p>${answers[i]}</p></div>`);
+        answer.addEventListener('click', () => selectAnswers(answer));
+        answersHTML.push(answer);
+    }
+
+    let actionsHTML = [];
+
+    if (page !== 0) {
+        let prevQuestion = elementFromHTML('<button id="previous">Previous question</button>');
+        prevQuestion.addEventListener('click', () => moveToQuestion(pages[page-1]));
+        actionsHTML.push(prevQuestion);
+    }
+
+    let submit = elementFromHTML('<button id="submit">Submit</button>');
+    submit.addEventListener('click', () => checkRightAnswers(answersHTML, rightAnswers));
+    actionsHTML.push(submit)
+
+    if (page !== pagesLength - 1) {
+        let nextQuestion = elementFromHTML('<button id="next">Next question</button>');
+        nextQuestion.addEventListener('click', () => moveToQuestion(pages[page+1]));
+        actionsHTML.push(nextQuestion);
+    } else {
+        let result = elementFromHTML('<button id="next">Result</button>');
+        actionsHTML.push(result);
+    }
+
+    const pageObj = {question: questionHTML, answers: answersHTML, actions: actionsHTML};
+
+    return pageObj;
+}
+
+function moveToQuestion(page) {
     document.querySelector('.question').innerHTML = '';
     document.querySelector('.grid-answers').innerHTML = '';
     document.querySelector('.grid-move-and-submit').innerHTML = '';
 
-    fetch(doc)
-        .then(response => response.json())
-        .then(quizData => {
-            const questions = quizData;
-            const answers = questions.questions[page].answers;
-            const rightAnswersIndex = questions.questions[page].right_answers;
-
-            document.querySelector('.question').insertAdjacentHTML('beforeend', `<h1>${questions.questions[page].question}</h1>`);
-
-            for (let i = 0; i < answers.length; i++) {
-                let answer = `<div class=\"answer-one\"><p>${answers[i]}</p></div>`;
-                document.querySelector('.grid-answers').insertAdjacentHTML('beforeend', answer);
-            }
-
-            let answersElements = document.querySelectorAll('.answer-one');
-
-            for (let i = 0; i < answersElements.length; i++) {
-                answersElements[i].addEventListener('click',
-                    () => selectAnswers(answersElements[i], 'answer-one'));
-            }
-
-            const actions = document.querySelector('.grid-move-and-submit');
-
-                if (page !== 0) {
-                    let prevQuestion = '<button id="previous">Previous question</button>';
-                    actions.insertAdjacentHTML('beforeend', prevQuestion);
-                    document.getElementById('previous').addEventListener('click', () => moveToQuestion(doc, page-1));
-                }
-
-                let submit = '<button id="submit">Submit</button>';
-                actions.insertAdjacentHTML('beforeend', submit)
-                document.getElementById('submit').addEventListener('click', () => checkRightAnswers(answersElements, rightAnswersIndex));
-
-                if (page !== questions.questions.length - 1) {
-                    let nextQuestion = '<button id="next">Next question</button>';
-                    actions.insertAdjacentHTML('beforeend', nextQuestion)
-                    document.getElementById('next').addEventListener('click', () => moveToQuestion(doc, page+1));
-                }
-        })
-        .catch(error => {
-            console.error('An error occurred while fetching or parsing the JSON file:', error);
-        });
+    document.querySelector('.question').insertAdjacentElement('beforeend', page.question);
+    page.answers.forEach(element => {
+        document.querySelector('.grid-answers').insertAdjacentElement('beforeend', element);
+    });
+    page.actions.forEach(element => {
+        document.querySelector('.grid-move-and-submit').insertAdjacentElement('beforeend', element); 
+    });
 }
 
 function testCheck(doc) {
-    const list = document.querySelector('.grid-answers');
-
     fetch(doc)
         .then(response => response.json())
         .then(quizData => {
-            const questions = quizData;
+            const questions = quizData.questions;
 
-            let page = 0;
-            const answers = questions.questions[page].answers;
-            const rightAnswersIndex = questions.questions[page].right_answers;
+            let pages = [];
 
-            document.querySelector('.question').insertAdjacentHTML('beforeend', `<h1>${questions.questions[page].question}</h1>`);
+            for (let i = 0; i < questions.length; i++) {
+                const question = questions[i].question;
+                const answers = questions[i].answers;
+                const rightAnswers = questions[i].right_answers;
 
-            for (let i = 0; i < answers.length; i++) {
-                let answer = `<div class=\"answer-one\"><p>${answers[i]}</p></div>`;
-                list.insertAdjacentHTML('beforeend', answer);
+                let page = generateQuestion(i, questions.length, pages, question, answers, rightAnswers);
+
+                pages.push(page);
             }
 
-            let answersElements = document.querySelectorAll('.answer-one');
-
-            for (let i = 0; i < answersElements.length; i++) {
-                answersElements[i].addEventListener('click',
-                    () => selectAnswers(answersElements[i], 'answer-one'));
-            }
-
-            const actions = document.querySelector('.grid-move-and-submit');
-
-            let submit = '<button id="submit">Submit</button>';
-            actions.insertAdjacentHTML('beforeend', submit)
-            document.getElementById('submit').addEventListener('click', () => checkRightAnswers(answersElements, rightAnswersIndex)); 
-            
-            if (page !== questions.questions.length - 1) {
-                let nextQuestion = '<button id="next">Next question</button>';
-                actions.insertAdjacentHTML('beforeend', nextQuestion)
-                document.getElementById('next').addEventListener('click', () => moveToQuestion(doc, 1));
-            }
+            moveToQuestion(pages[0]);
             } 
         )
         .catch(error => {
