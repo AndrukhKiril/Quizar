@@ -16,15 +16,15 @@ body {
     max-height: 30em;
 }
 
-@media screen and (max-width: 600px) {
+@media (pointer: coarse) {
     .bubble-header {
-        height: 65vh;
+        height: 40vh;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
         clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     }
 }
 
-@media screen and (min-width: 601px) {
+@media (pointer: fine), (pointer: none) {
     .bubble-header {
         height: 50vh;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
@@ -47,7 +47,7 @@ p {
 }
 
 a {
-    color: #8f71c2;
+    color: #a689cc;
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
