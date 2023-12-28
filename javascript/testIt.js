@@ -1,5 +1,5 @@
 import { testCheck } from './testCheck.js';
 
-const doc = '../test-it.json';
+const doc = 'https://andrukhkiril.github.io/Quizar/test-it.json';
 
 testCheck(doc);

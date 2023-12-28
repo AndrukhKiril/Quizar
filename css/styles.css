@@ -13,11 +13,23 @@ body {
 .bubble-header {
     background-color:#504c5f;
     min-height: 20em;
-    height: 60vh;
     max-height: 30em;
-    height: auto;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+@media screen and (max-width: 600px) {
+    .bubble-header {
+        height: 65vh;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .bubble-header {
+        height: 50vh;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+    }
 }
 
 h1 {
