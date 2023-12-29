@@ -57,12 +57,29 @@ a.contacts {
     transition: 0.3s;
 }
 
+#take-quiz {
+    grid-area: take-quiz;
+}
+
+#create-quiz {
+    grid-area: create-quiz;
+}
+
+#test-it {
+    grid-area: test-it;
+}
+
 .buttons {
-    display: flex;
+    display: grid;
     justify-content: space-evenly;
-    margin: 1em auto 0;
+    margin: 1rem auto;
     max-width: 70%;
-    padding: 0; 
+    padding: 0;
+    row-gap: 5em;
+    column-gap: 3em;
+    grid-template:
+        'create-quiz take-quiz'
+        'test-it test-it'
 }
 
 button {
@@ -79,16 +96,6 @@ button {
     background: #504c5f;
     box-shadow: 0 1.25rem #302b3a;
     color: #bbbbbb;
-}
-
-.button-test button {
-    margin: 3em auto 0;
-}
-
-.buttons button {
-    margin: auto 1rem;
-    line-height: 1.5rem;
-    max-height: 7rem;
 }
 
 button:hover {
