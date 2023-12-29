@@ -20,10 +20,10 @@
 .grid-answers {
     margin: 2.5rem;
     display: grid;
-    grid-column-gap: 3%;
-    grid-row-gap: 12%;
-    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+    column-gap: 2rem;
     grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .answer-one {
