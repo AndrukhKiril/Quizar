@@ -2,10 +2,8 @@
     margin: auto;
     min-height: 10rem;
     padding: 1em;
-    height: 30vh;
-    border-radius: 0 0 2rem 2rem;
+    height: 20vh;
     background: #504c5f;
-    box-shadow: 0 1.25rem #302b3a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,10 +16,10 @@
 }
 
 .grid-answers {
-    margin: 2.5em;
+    margin: 2em 2% 0;
     display: grid;
-    row-gap: 1.25em;
-    column-gap: 1.25em;
+    row-gap: 1.25vw;
+    column-gap: 1.25vw;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
 }
@@ -31,7 +29,7 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-    padding: 0.5em 0.5em;
+    padding: 0.75em 0.75em;
     border: none;
     border-radius: 1rem;
     transition: 0.3s;
@@ -49,7 +47,7 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-    padding: 1.5rem 1rem;
+    padding: 0.75em 0.75em;
     border: none;
     border-radius: 1rem;
     transition: 0.3s;
@@ -63,25 +61,11 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-    padding: 1.5rem 1rem;
+    padding: 0.75em 0.75em;
     border: none;
     border-radius: 1rem;
     transition: 0.3s;
     background: rgb(114, 37, 33);
-    box-shadow: 0 1em #302b3a;
-    color: #bbbbbb;
-}
-
-.answer-expected {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: 1.5rem 1rem;
-    border: none;
-    border-radius: 1rem;
-    transition: 0.3s;
-    background: #ddb918;
     box-shadow: 0 1em #302b3a;
     color: #bbbbbb;
 }
@@ -94,13 +78,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .grid-move-and-submit {
-    margin: 2em 10%;
+    margin: 2em 2%;
     display: grid;
-    grid-column-gap: 5%;
+    column-gap: 5%;
     position: relative;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
