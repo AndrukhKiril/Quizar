@@ -1,37 +1,105 @@
 {
-    "title": "Test it",
+    "title": "Robotics-II",
     "questions": [
         {
-            "question": "What is Quizar?",
+            "question": "In the RRT algorithm, The Extend operation",
             "type": "one-right",
             "answers": [
-                "Uuuuuuuh",
-                "The right way to write it is Quasar☝️🤓",
-                "Have you seen a little girl? Short, black hair. She just turned 7 last month.",
-                "It is an intriguing amalgamation of two kindred words."
+                "a. expnads the tree and advances the motion towards q_goal",
+                "b. expands the tree and advances the motion towards q_goal and q_init",
+                "c. expnads the tree and tries to build a new branch q_goal"
             ],
-            "right_answers": 3
+            "right_answers": 2
         },
         {
-            "question": "What is it made for?",
-            "type": "more-right",
-            "answers": [
-                "FOR FUN",
-                "To have better grades☝️🤓",
-                "ONE PIECE IS REAL",
-                "I don't like sand"
-            ],
-            "right_answers": [0, 2, 3]
-        },
-        {
-            "question": "Say my name",
+            "question": "Considering the following state vector and covariance matrix (stohastic map) of an EKF-SLAM system",
             "type": "one-right",
             "answers": [
-                "Walter White",
-                "Jessie Pinkman",
-                "Saul Goodman"
+                "a. robot pose covariance matrix and the covariance matrices of respective landmarks",
+                "b. cross-covariance matrices between the landmarks and the robot's pose",
+                "c. robot pose covariance matrices in the consecutive time moments(along the trajectory"
             ],
-            "right_answers": [0, 2]
+            "right_answers": 0
+        },
+        {
+            "question": "The RRT* algorithm",
+            "type": "one-right",
+            "answers": [
+                "a. is complete and optimal, in opposition to the classic RRT",
+                "b. is asymptotically optimal and fast exploration properties like RRT",
+                "c. is complete, but not optimal"
+            ],
+            "right_answers": 1
+        },
+        {
+            "question": "Considering a trilateration localization procedure (measuring distances is possible) in 2D navigation of a mobile robot, how many landmarks have to be in the field of view to compute the robot's position?",
+            "type": "one-right",
+            "answers": [
+                "a. two landmarks",
+                "b. three landmarks not creating a straight line",
+                "c. three landmarks"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "Probabilistic RoadMaps(PRM)",
+            "type": "one-right",
+            "answers": [
+                "a. is a motion planning method designed for car-like vehicles",
+                "b. is a method designed mainly for motion planning problems with multiple queries (multi-query)",
+                "c. is a method designed mainly for motion planning problems with single queries (single-query)"
+            ],
+            "right_answers": 1
+        },
+        {
+            "question": "The local minima problem in the potential fields motion planning method can be solved",
+            "type": "one-right",
+            "answers": [
+                "a. assigning to each obstacle the direction of motion of the robot near it (spin)",
+                "b. ensuring equal distribution of the potential on the obstacles",
+                "c. assigning to the robot a large enough positive potential"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "Which one of the following statements is FALSE",
+            "type": "one-right",
+            "answers": [
+                "a. The paths planned using visibility graph may be incident to the vertices of the polygonal obstacles",
+                "b. The Voronoi graph method produces shorter paths than the visibility graph method",
+                "c. Paths created with the Voronoi graph method tend to keep equal distances to the neighboring obstacles"
+            ],
+            "right_answers": 1
+        },
+        {
+            "question": "How many actuators (independent motors) does need the robot shown in this figure to be omnidirectional (holonomic)",
+            "type": "one-right",
+            "answers": [
+                "a. two, on the opposite sides",
+                "b. four, one per wheel",
+                "c. a single motor with driving belts"
+            ],
+            "right_answers": 1
+        },
+        {
+            "question": "In motion planning, resolution completeness",
+            "type": "one-right",
+            "answers": [
+                "a. guarantees that the planning algorithm finds a path if the resolution of the grid map is large enough (large cells)",
+                "b. guarantees that the planning algorithm finds a path if the resolution of the grid map is large enough (small cells)",
+                "c. guarantees that the planning algorithm finds a path if the resolution of the grid map is small enough, ensuring tractable computations."
+            ],
+            "right_answers": 1
+        },
+        {
+            "question": "n a particle filter, the probability distribution (PDF) is represented",
+            "type": "one-right",
+            "answers": [
+                "a. alternatively by the density of particles (samples) or the weights of these particles",
+                "b. alternatively by the importance of particles or the weights of these particles",
+                "c. by the number of particles within a given area"
+            ],
+            "right_answers": 0
         }
     ] 
 }
