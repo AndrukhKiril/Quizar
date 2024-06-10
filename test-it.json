@@ -5,7 +5,7 @@
             "question": "In the RRT algorithm, The Extend operation",
             "type": "one-right",
             "answers": [
-                "a. expnads the tree and advances the motion towards q_goal",
+                "a. expands the tree and advances the motion towards q_goal",
                 "b. expands the tree and advances the motion towards q_goal and q_init",
                 "c. expnads the tree and tries to build a new branch q_goal"
             ],
