@@ -92,7 +92,7 @@
             "right_answers": 1
         },
         {
-            "question": "n a particle filter, the probability distribution (PDF) is represented",
+            "question": "In a particle filter, the probability distribution (PDF) is represented",
             "type": "one-right",
             "answers": [
                 "a. alternatively by the density of particles (samples) or the weights of these particles",
@@ -100,6 +100,206 @@
                 "c. by the number of particles within a given area"
             ],
             "right_answers": 0
+        },
+        {
+            "question": "In a typical EKF-SLAM implementation with non-unique landmarks (i.e. landmarks that cannot be easily \"read\" by the sensor for their ID) the predictions and observations are matched using",
+            "type": "one-right",
+            "answers": [
+                "a. a probabilistic method applying Bayes filter",
+                "b. using Hamming distance",
+                "c. a probabilistic method with Mahalanobis distance"
+            ],
+            "right_answers": 2
+        },
+        {
+            "question": "Sampling-based motion planning algorithms",
+            "type": "one-right",
+            "answers": [
+                "a. preserve some form of completeness, such as probabilistic completeness or completeness with respect to resolution",
+                "b. are completer, but cannot be optimal",
+                "c. by construction are neither complete nor optimal"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "In a car-like kinematic robot(four wheels) the turning radius depends of",
+            "type": "one-right",
+            "answers": [
+                "a. the distance between the axes and the steering wheels maximum deflection angle",
+                "b. the wheels basis(width) and the steering wheels maximum deflection angle",
+                "c. the steering wheels maximum deflection angle"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "In RRT algorithm",
+            "type": "one-right",
+            "answers": [
+                "a. represents an obstacle in C_free",
+                "b. represents a plausible next move of the robot",
+                "c. represents a configuration of the robot"
+            ],
+            "right_answers": 2
+        },
+        {
+            "question": "In robotics, dead reckoning",
+            "type": "one-right",
+            "answers": [
+                "a. is a procedure that detects dead ends in motion planning",
+                "b. determines the pose of a (mobile) robot using a fixed (dead) map of the environment",
+                "c. determines the current position of a given vehicle (mobile robot) on the basis of its previous position, known course and speed, and travel time"
+            ],
+            "right_answers": 2
+        },
+        {
+            "question": "In a hierarchival navigation system",
+            "type": "one-right",
+            "answers": [
+                "a. a symbolic model of the environment is used as a central structure",
+                "b. no environment model is necessary, because all knowledge is rule-based"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "A robot can be defined as",
+            "type": "one-right",
+            "answers": [
+                "a. a software agent that is intended for specific hardware",
+                "b. a physical agent that performs tasks by manipulating the physical world",
+                "c. an agent that can perform useful tasks"
+            ],
+            "right_answers": 1
+        },
+        {
+            "question": "A planning algorithm is complete if",
+            "type": "one-right",
+            "answers": [
+                "a. in finite time it either finds a solution or correctly reports that theres is no solution",
+                "b. in finite time it finds optimal solution or correctly reports that theres is no solution",
+                "c. it guarantees a high probability of finding a solution or reporting that theres is no solution"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "Which one of the following is NOT a family motion planning methods",
+            "type": "one-right",
+            "answers": [
+                "a. roadside following",
+                "b. cell decomposition",
+                "c. wavefront"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "In hierarchical control system of a robot",
+            "type": "one-right",
+            "answers": [
+                "a. all modules are divided into layers with a strictly defned hierarchy. Layers occupying a higher level in the hierarchy, define a task and send it to lower, subordinate levels",
+                "b. modules are divided into layers with a strictly defned hierarchy. Layers occupying a higher level in the hierarchy perform more important tasks",
+                "c. all modules are equal in the hierarchy"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "Which of the following issues in a differential-drive mobile robot odometry causes systematic errors",
+            "type": "one-right",
+            "answers": [
+                "a. differences in diameter of driving wheels (e.g. due to tyre wear)",
+                "b. external forces, e.g. causes by a jammed caster wheel",
+                "c. bumps and/or potholes on the surface"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "Which of the following statements about the PRM motion planning algorithm is FALSE",
+            "type": "one-right",
+            "answers": [
+                "a. in PRM the solution is obtained by querying the shortest path using Dijkstra's algorithm",
+                "b. PRM is probabilistically complete, assuming certain conditions on the shape of the free space",
+                "c. PRM is a complete algorithm"
+            ],
+            "right_answers": 2
+        },
+        {
+            "question": "An approximate cell decomposition in 2D motion planning have adaptive cell size",
+            "type": "one-right",
+            "answers": [
+                "a. using a quadtree data structure",
+                "b. using an octree data structure",
+                "c. using a binary tree"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "This scheme shows a mobile robot configuration of the type",
+            "type": "one-right",
+            "answers": [
+                "a. synchro drive",
+                "b. tricycle drive",
+                "c. differential drive"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "In the PRM planning algorithm, the rate of convergence depends on",
+            "type": "one-right",
+            "answers": [
+                "a. the number of actions undertaken by the local planner",
+                "b. the visibility property of the free space, where the visibility is determined by the local planner",
+                "c. the average distance between the points sampled from the configuration space"
+            ],
+            "right_answers": 1
+        },
+        {
+            "question": "The figure shows",
+            "type": "one-right",
+            "answers": [
+                "a. pose graph (pose-based SLAM)",
+                "b. EKF-SLAM",
+                "c. full bundle adjustment SLAM"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "Probabilistic completeness in motion planning",
+            "type": "one-right",
+            "answers": [
+                "a. ensures that the probability of reaching the stop condition of the planning algorithm approaches one",
+                "b. ensures that as more actions are performed, the probability that the planner will find an optimal path, asymptotically approaches one",
+                "c. ensures that as more actions are performed, the probability that the planner will not find path, if one exists, asymptotically approaches zero"
+            ],
+            "right_answers": 2
+        },
+        {
+            "question": "In a particle filter the \"importance sampling\" procedure",
+            "type": "one-right",
+            "answers": [
+                "a. assigning weights to particles upon a sensory observation",
+                "b. increases the number of particles when necessary",
+                "c. removes unnecessary particles"
+            ],
+            "right_answers": 0
+        },
+        {
+            "question": "The configuration space of a robot is reffered to as",
+            "type": "one-right",
+            "answers": [
+                "a. the space C of all configuratoins of this robot",
+                "b. the spcae C_free of all possible collision-free configurations",
+                "c. a space enumerating all degrees of freedom (DoF) of the robot"
+            ],
+            "right_answers": 0
+        },
+        
+        {
+            "question": "In the FastSLAM algorithm",
+            "type": "one-right",
+            "answers": [
+                "a. the poses of the robot and landmarks are estimated using non-linear optimization",
+                "b. the robot's trajectory is estimated by a particle filter, while the landmarks are considered independent and their poses are estimated by individual extended Kalman filters",
+                "c. the robot and the landmarks are considered independent and their poses are estimated by individual extended Kalman filters"
+            ],
+            "right_answers": 1
         }
     ] 
 }
